@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'temp';
+  values = '';
+  title = 'angularApp';
+  onKey(event: any) { 
+    this.dataService.sharedData = event.target.value ;
+    this.dataService.time = new Date() + "";
+  }
+  constructor(private dataService:DataService)
+  {
+
+  }
 }
